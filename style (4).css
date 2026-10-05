@@ -1,0 +1,65 @@
+:root{--k:#000;--w:#fff;--g:#8c8c8c;--l:#d6d6d6;--pad:clamp(1.25rem,4vw,4rem)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--k);color:var(--w);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;font-weight:400;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.cursor{position:fixed;left:0;top:0;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:99;opacity:0;transition:width .3s,height .3s,margin .3s,opacity .3s}
+.cursor.on{opacity:1}
+.cursor.big{width:72px;height:72px;margin:-36px 0 0 -36px}
+@media (hover:none),(pointer:coarse){.cursor{display:none}}
+
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1.4rem var(--pad);color:#fff;mix-blend-mode:difference}
+.brand{font-family:Italiana,serif;font-size:1.7rem;letter-spacing:.04em}
+.nav nav{display:flex;gap:clamp(1rem,2.5vw,2.4rem);font-family:Italiana,serif;font-size:1.1rem;letter-spacing:.05em}
+.nav nav a{opacity:.75;transition:opacity .25s}
+.nav nav a:hover{opacity:1}
+@media(max-width:620px){.nav nav a:not(:last-child){display:none}}
+
+.hero{min-height:100svh;padding:7rem var(--pad) 1.6rem;display:flex;flex-direction:column;justify-content:space-between;gap:3rem}
+.hero-top{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:end}
+.tagline{font-size:clamp(1.7rem,3.6vw,3.3rem);font-weight:300;line-height:1.5;letter-spacing:.06em}
+.lead{color:var(--g);max-width:26em;font-size:.95rem}
+.wordmark{display:flex;overflow:hidden;font-family:Italiana,serif;font-weight:400;font-size:clamp(8rem,34vw,46rem);line-height:.92;letter-spacing:-.03em;margin:0 0 0 -.05em;padding-bottom:.02em}
+.wordmark span{display:inline-block;transform:translateY(105%);animation:rise 1.3s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(var(--i)*.11s + .15s)}
+@keyframes rise{to{transform:none}}
+.hero-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1.2rem;border-top:1px solid #333;color:var(--g);font-size:.85rem}
+.link{color:var(--w);border-bottom:1px solid var(--w);padding-bottom:2px}
+@media(max-width:760px){.hero-top{grid-template-columns:1fr}}
+
+.sec{padding:clamp(6rem,13vw,12rem) var(--pad)}
+.light{background:var(--w);color:var(--k)}
+.dark{background:var(--k);color:var(--w)}
+.sec h2{font-size:clamp(2rem,5.4vw,5rem);font-weight:300;line-height:1.35;letter-spacing:.03em}
+.intro{margin-top:2rem;max-width:34em;color:var(--g)}
+.light .intro{color:#555}
+
+.rows{margin-top:clamp(3rem,7vw,6rem)}
+.row{display:grid;grid-template-columns:1fr 1.3fr .7fr;gap:2rem;align-items:start;padding:2.2rem 1rem;border-top:1px solid currentColor;transition:background .45s,color .45s,padding .45s}
+.row:last-child{border-bottom:1px solid currentColor}
+.row h3{font-size:clamp(1.3rem,2.2vw,2rem);font-weight:400;letter-spacing:.04em;line-height:1.5}
+.row p{font-size:.95rem;opacity:.8}
+.tags{font-size:.85rem;opacity:.6}
+.light .row:hover{background:var(--k);color:var(--w);padding-left:2rem}
+.dark .row:hover{background:var(--w);color:var(--k);padding-left:2rem}
+.note{margin-top:2rem;font-size:.8rem;color:var(--g)}
+@media(max-width:860px){.row{grid-template-columns:1fr;gap:.8rem}}
+
+.steps{margin-top:clamp(3rem,7vw,6rem);display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.steps li{border-top:1px solid var(--k);padding-top:1.4rem}
+.n{display:block;font-family:Italiana,serif;font-size:3.4rem;line-height:1;margin-bottom:1.6rem}
+.steps h3{font-size:1.4rem;font-weight:500;letter-spacing:.05em}
+.steps p{margin-top:.6rem;font-size:.92rem;color:#555}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+.contact{min-height:80svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.btn{display:inline-block;margin-top:3rem;padding:1.3rem 3rem;border:1px solid var(--w);border-radius:999px;font-size:1.05rem;letter-spacing:.1em;transition:background .35s,color .35s}
+.btn:hover{background:var(--w);color:var(--k)}
+
+.foot{display:flex;justify-content:space-between;padding:1.6rem var(--pad);border-top:1px solid #333;color:var(--g);font-size:.85rem}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wordmark span{animation:none;transform:none}*{transition-duration:.01ms!important}}
